@@ -22,7 +22,7 @@ An open source interface for ZKPVote - a serverless voting application in which 
 
 ## ZKPVote contract
 
-Please see the [@vechain-community/zkpvote-contract](https://github.com/vechain-community/zkpvote-contract) repository. ZKPVote is using contractV2.
+Please see the [@vechain-community/zkpvote-contracts](https://github.com/vechain-community/zkpvote-contracts) repository. ZKPVote is using contractV2.
 
 ## Screenshots
 <img width="" src="screenshots/homepage.png" alt="Home page">
@@ -45,6 +45,7 @@ IPFS_PORT = 5001
 # protocol http or https
 IPFS_PROTOCOL = http
 ```
+
 
 ### Project setup
 
