@@ -1,6 +1,6 @@
 <template>
   <div class="zkp-layout">
-    <a class="github-corner" href='https://github.com/vechain-community/zkpvote-ui' />
+    <a class="github-corner" href='https://github.com/vechain-community/zkpvote-ui' target="_blank" />
     <Header />
     <slot />
     <Footer />
@@ -31,6 +31,7 @@ export default class Layout extends Vue {}
     z-index: 999;
     background: url('../../assets/images/github-corner.png');
     background-size: 130px;
+    outline: none;
   }
   .zkp-layout {
     min-height: 100vh;
