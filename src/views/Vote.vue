@@ -227,46 +227,35 @@ export default class Vote extends Vue {
 
   private async created() {
     try {
-      // 是否有connex环境
       if (!await checkIsConnex()) {
         checkProtocolDetection();
         return false;
       }
 
-      // 是否联网
       if (!await isOnLine()) {
         throw Error('Connection Error');
       }
 
-      // 是否测试环境
       if (!await isTestNet()) {
         this.isTestNet = false;
         throw Error('ZKPVote only runs in Testnet');
       }
 
-      // 判断voteID是否合法
       if (this.voteIDStatus) {
-        // 判断议题ID是否存在
         const signer = await this.checkVoteIDexist();
 
-        // 显示404模块
         if (!signer) {
           return false;
         }
 
-        // 议题发起人
         this.proposedBy = signer;
 
-        // 判断是否是自己
         this.isSelf = this.signer === signer;
 
-        // 获取议题状态
         await this.getVoteStatus();
 
-        // 获取议题内容
         await this.getVoteDetail(signer);
 
-        // 判断是否登录
         if (!this.signer && !this.isShowNotFound) {
           return await this.login();
         }
@@ -299,7 +288,6 @@ export default class Vote extends Vue {
     }
   }
 
-  // 判断议题ID是否存在
   private async checkVoteIDexist() {
     const response = await ConnexService.checkVoteIDexist(this.voteID);
     if (!response) {
@@ -308,16 +296,13 @@ export default class Vote extends Vue {
     return response;
   }
 
-  // 获取议题内容
   private async getVoteDetail(signer: string) {
     const topic = await ipfs(this.config.ipfsConfig).files.read(`/${signer}/${this.voteID}`);
     this.topicDetail = await Uint8Array2json(topic);
   }
 
-  // 获取议题状态
   private async getVoteStatus() {
     try {
-      // 获取议题状态
       const status = await ConnexService.proposalStatus(this.voteID);
       if (status !== undefined) {
         this.status = status;
@@ -339,7 +324,6 @@ export default class Vote extends Vue {
           }
           break;
         default:
-          // 获取公钥
           this.authPubKey = await ConnexService.getAuthPubKey(this.voteID);
           if (this.signer) {
             await this.getVoteResult();
