@@ -119,7 +119,6 @@ export default class DialogTally extends Vue {
     return this.$route.params.voteID;
   }
 
-  // 文件上传
   private handleBeforeUpload(file: File) {
     const reader = new FileReader();
 
@@ -152,16 +151,13 @@ export default class DialogTally extends Vue {
 
   private async handleUploadResult() {
     try {
-      // 是否有connex环境
       if (!await checkIsConnex()) {
         checkProtocolDetection();
         return false;
       }
-      // 是否联网
       if (!await isOnLine()) {
         throw Error('Connection Error');
       }
-      // 是否测试环境
       if (!await isTestNet()) {
         throw Error('ZKPVote only runs in Testnet');
       }

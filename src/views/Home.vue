@@ -49,10 +49,8 @@ export default class Home extends Vue {
     backgroundAnimation(this.text);
   }
 
-  // 登录
   private async handleClick() {
     try {
-      // 判断是否登录
       if (checkAuthorized()) {
         this.$router.push('/new-proposal');
       } else {

@@ -14,7 +14,6 @@ import store from './store';
 import './assets/scss/common.scss';
 import 'normalize.scss/normalize.scss';
 
-// 设置语言
 locale.use(lang);
 
 Vue.config.productionTip = false;

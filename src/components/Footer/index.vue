@@ -1,15 +1,20 @@
 <template>
   <footer class='zkp-footer'>
-    <span>© VeChain Foundation 2020</span>
+    <a href='https://www.vechain.org' target="_blank">© VeChain Foundation {{ year }}</a>
     <span>Powered by VeChain</span>
   </footer>
 </template>
 
 <script lang='ts'>
 import { Vue, Component } from 'vue-property-decorator';
+import dayjs from 'dayjs';
 
 @Component
-export default class Footer extends Vue {}
+export default class Footer extends Vue {
+  private get year() {
+    return dayjs().format('YYYY');
+  }
+}
 </script>
 
 <style lang='scss' scoped>
@@ -25,5 +30,13 @@ export default class Footer extends Vue {}
     font-size: 14px;
     color: #ffffff;
     box-sizing: border-box;
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 </style>

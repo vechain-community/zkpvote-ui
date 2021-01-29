@@ -58,11 +58,6 @@ export default class Button extends Vue {
   &#{&}__dark {
     background-color: #f3f3f3;
   }
-/*
-  &:active {
-    box-shadow: 0 0.125em 0 #c3c3c3;
-    top: 0.25em;
-  } */
 
   &:disabled {
     background-color: #f3f3f3;
