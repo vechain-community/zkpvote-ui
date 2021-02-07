@@ -1,0 +1,23 @@
+name: GitHub Actions Build and Deploy ZKPVOTE
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Install and Build
+
+        run: |
+          yarn install
+          yarn run build
+          cp dist/index.html dist/404.html
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: dist

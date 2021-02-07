@@ -1,0 +1,56 @@
+@import url('./_font.scss');
+
+body {
+  background: linear-gradient(180deg, #24566a 0%, #37284b 53%, #1a0e29 100%);
+  font-family: AlibabaSans;
+  font-weight: 400;
+}
+
+.el-notification__content {
+  text-align: unset;
+}
+
+.el-radio {
+  color: #ffffff;
+}
+
+.el-radio__input {
+  &.is-checked {
+    & + .el-radio__label {
+      color: #ffffff;
+    }
+    .el-radio__inner {
+      border-color: #939dab;
+      background: #939dab;
+      &::after {
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+  &.is-disabled {
+    .el-radio__inner {
+      border-color: #939dab;
+      background: #939dab;
+    }
+  }
+}
+
+.zkp-home__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(
+    circle at 50% 75%,
+   #49A8CE 0%,
+   #24566A 57%,
+   #37284B 100%
+  );
+}
+
+.el-picker-panel .el-button--text {
+  display: none;
+};
