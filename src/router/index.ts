@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-
 import NotFound from '@/views/NotFound.vue';
 
 Vue.use(VueRouter);
