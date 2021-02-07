@@ -37,10 +37,36 @@ export const checkIsConnex = () => 'connex' in window;
 
 export const isOnLine = () => window.navigator.onLine;
 
-export const isTestNet = async () => {
-  const block = connex.thor.block(0);
+export const sleep = () => new Promise((resolve) => {
+  let timeId: ReturnType<typeof setTimeout> | null = null;
+
+  const getConnexStatus = () => {
+    const { progress } = window.connex.thor.status;
+    if (progress === 1) {
+      if (timeId) {
+        clearTimeout(timeId);
+        timeId = null;
+      }
+      resolve(true);
+    } else {
+      if (timeId) {
+        clearTimeout(timeId);
+        timeId = null;
+      }
+      timeId = setTimeout(() => {
+        getConnexStatus();
+      }, 100);
+    }
+  };
+  getConnexStatus();
+});
+
+export const isTestNet = async (): Promise<boolean> => {
+  await sleep();
+  const parentId = '0x000000000b2bce3c70bc649a02749e8687721b09ed2e15997f466536b20bb127';
+  const block = window.connex.thor.block(0);
   const firstBlock = await block.get();
-  return firstBlock?.id === '0x000000000b2bce3c70bc649a02749e8687721b09ed2e15997f466536b20bb127';
+  return firstBlock?.id === parentId;
 };
 
 export const ellipsis = (address: string) => `${address.slice(0, 8)}...`;

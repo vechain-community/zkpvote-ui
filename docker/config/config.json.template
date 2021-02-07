@@ -1,8 +1,0 @@
-{
-  "contractAddress": "${CONTRACT_ADDRESS}",
-  "ipfsConfig": {
-    "host": "${IPFS_HOST}",
-    "port": "${IPFS_PORT}",
-    "protocol": "${IPFS_PROTOCOL}"
-  }
-}

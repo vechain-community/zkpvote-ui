@@ -4,7 +4,7 @@
   font-weight: 700;
   src:
     local('Montserrat-ExtraBold'),
-    url('/fonts/Montserrat/Montserrat-ExtraBold.ttf') format('trueType')
+    url('../../../public/fonts/Montserrat/Montserrat-ExtraBold.ttf') format('trueType')
 };
 
 
@@ -14,7 +14,7 @@
   font-weight: 400;
   src:
     local('AlibabaSans-Regular'),
-    url('/fonts/AlibabaSans/AlibabaSans-Regular.otf') format('opentype')
+    url('../../../public/fonts/AlibabaSans/AlibabaSans-Regular.otf') format('opentype')
 };
 
 @font-face {
@@ -23,5 +23,5 @@
   font-weight: 700;
   src:
     local('AlibabaSans-Bold'),
-    url('/fonts/AlibabaSans/AlibabaSans-Bold.otf') format('opentype')
+    url('../../../public/fonts/AlibabaSans/AlibabaSans-Bold.otf') format('opentype')
 };

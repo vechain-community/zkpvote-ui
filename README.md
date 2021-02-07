@@ -44,42 +44,24 @@ cd zkpvote-ui/
 
 You can refer to [this link](https://github.com/ipfs/go-ipfs#running-ipfs-inside-docker) to deploy your own IPFS server.
 
-### Create configuration file(`.env`)
+### Modify the configuration file
 
-create `.env` file from `env.example`:
+The configuration file is stored in the `public/config.json`, edit the file to modify the configuration.
 
-```
-cp env.example .env
-```
+### Build
 
-Configure `.env`:
+Run the following command to compile the source code.
 
-```
-# Contract address
-CONTRACT_ADDRESS=0xb857ec3641ef2a7b9fc2ab4fbe3e65386df17253
+```bash
+yarn install
 
-# Host of your IPFS server, example: 127.0.0.1
-IPFS_HOST=
-
-# Port of your IPFS server, example:5001
-IPFS_PORT=
-
-# Protocol of your IPFS server(http/https), example: http
-IPFS_PROTOCOL=
+yarn build
 ```
 
-### Build & Run
+Then the `dist` folder will be generated.
 
-We recommend using docker to deploy this project, you can refer to the following links to install `docker` and `docker-compose`:
+### Deploy
 
-- [Install Docker Engine | Docker Documentation](https://docs.docker.com/engine/install/)
-- [Install Docker Compose | Docker Documentation](https://docs.docker.com/compose/install/)
+You can use any web server (Nginx, Apache, etc) to deploy the project, you just need to put the `dist` folder to the specified location.
 
-Build docker image:
-
-```
-docker-compose build
-docker-compose up -d
-```
-
-Now, you can access your service at: `http://localhost:3000` .
+Because the project uses a browser history routing scheme, additional configuration is required, You can refer to [this link](https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations).
