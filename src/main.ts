@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import Axios from 'axios';
 import { Loading, Notification } from 'element-ui';
 import VueClipboard from 'vue-clipboard2';
 import {
@@ -8,6 +7,7 @@ import {
 import ConnexService from '@/api';
 import lang from 'element-ui/lib/locale/lang/en';
 import locale from 'element-ui/lib/locale';
+import Axios from 'axios';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -40,7 +40,7 @@ router.beforeEach(async (to, from, next) => {
   next();
 });
 
-Axios.get('/config.json').then(({ status, data }) => {
+Axios.create().get(`${process.env.BASE_URL}config.json`).then(({ status, data }) => {
   if (status === 200) {
     ConnexService.getInstance(data.contractAddress);
     store.dispatch('setConfig', data);

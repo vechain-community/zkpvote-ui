@@ -13,7 +13,7 @@
     </template>
     <a
       class="github-link"
-      href='https://github.com/zzGHzz/zkVoteContract/blob/master/contractV2/'
+      href='https://github.com/vechain-community/zkpvote-contracts/tree/master/contractV2'
       target="_blank"
     >
       <span></span>
