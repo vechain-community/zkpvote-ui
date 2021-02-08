@@ -8,11 +8,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
-      - name: Install and Build
+        uses: actions/checkout@v2
 
+      - name: Install Dependency
+        run: yarn install
+
+      - name: Set base URL in Env
+        if: ${{ github.repository_owner != 'vechain-community' }}
         run: |
-          yarn install
+          echo 'BASE<<EOF' >> $GITHUB_ENV
+          echo "$GITHUB_REPOSITORY" | awk -F / '{print "/"$2"/"}' >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+
+      - name: Buid Website
+        run: |
           yarn run build
           cp dist/index.html dist/404.html
 
