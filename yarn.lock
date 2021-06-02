@@ -1251,10 +1251,47 @@
     semver "^7.3.2"
     tsutils "^3.17.1"
 
+"@vechain/connex-driver@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@vechain/connex-driver/-/connex-driver-2.0.2.tgz#ba094df75f7325c319928d8ed05e7471f0e972f5"
+  integrity sha512-D/3tK0OO6XjZPGDWLlR0ASh4uOIHq3s8wEMjw5+v+XrCato1sVzXzTo7bOFY8VBR6TqzNUHslOdTgrrP28884w==
+  dependencies:
+    "@vechain/connex-types" "^2.0.2"
+    axios "^0.21.1"
+    bignumber.js "^7.2.1"
+    isomorphic-ws "^4.0.1"
+    lru-cache "^5.1.1"
+    thor-devkit "^2.0.1"
+    ws "^7.1.0"
+
+"@vechain/connex-framework@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@vechain/connex-framework/-/connex-framework-2.0.2.tgz#0ecc3b49ebb2af2b800922fba3a6988e17fa62af"
+  integrity sha512-NJicGnc9/T6Gf5D1uJitulrNWx/KSrd2Be0X0U0CKL+PTzkd//9FoMGcVXJo9DlU6MHEDLLjPeg+FcK07uttug==
+  dependencies:
+    "@vechain/connex-types" "^2.0.2"
+    thor-devkit "^2.0.1"
+    validator-ts "^0.9.1"
+
+"@vechain/connex-types@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@vechain/connex-types/-/connex-types-2.0.2.tgz#089d94137ba9934daf903025647897f804f4b7c4"
+  integrity sha512-as905zXnVgc74mLkWkr2zMgJRJmFTMEDrRgtOPn68rqLeYCBzR7Ye1QCGbGKnPUaYGDLbGutoIW8r1y8wmGCUg==
+
 "@vechain/connex@^1.4.2":
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/@vechain/connex/-/connex-1.4.2.tgz#2298703510e67c067e76a9215508a8875620c348"
   integrity sha512-G4iG8EgUSVUmmNPy0wMyh5APNx/TJEWQtWJNsJQTTetjIPrGRZY89YE4UDpIEcH6dF39cL5Vkn7whigxsWws5w==
+
+"@vechain/connex@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@vechain/connex/-/connex-2.0.3.tgz#a866c4d7096344a22b232115820fb9a0158fb8bd"
+  integrity sha512-TLrV2urdXpxD4mQ7I4m2AqNdCVZOdJk0lUMUexw81hA4zJGwWIo9zYuhv2a89exTbWgGRMSGj9cDIjuFV5L0/w==
+  dependencies:
+    "@vechain/connex-driver" "^2.0.2"
+    "@vechain/connex-framework" "^2.0.2"
+    randombytes "^2.1.0"
+    thor-devkit "^2.0.1"
 
 "@vechain/ethers@^4.0.27-3":
   version "4.0.27-3"
@@ -2155,7 +2192,7 @@ aws4@^1.8.0:
   resolved "https://registry.npm.taobao.org/aws4/download/aws4-1.10.1.tgz#e1e82e4f3e999e2cfd61b161280d16a111f86428"
   integrity sha1-4eguTz6Zniz9YbFhKA0WoRH4ZCg=
 
-axios@^0.21.0:
+axios@^0.21.0, axios@^0.21.1:
   version "0.21.1"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
   integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
@@ -6157,6 +6194,11 @@ isobject@^3.0.0, isobject@^3.0.1:
   resolved "https://registry.npm.taobao.org/isobject/download/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
+isomorphic-ws@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/isomorphic-ws/-/isomorphic-ws-4.0.1.tgz#55fd4cd6c5e6491e76dc125938dd863f5cd4f2dc"
+  integrity sha512-BhBvN2MBpWTaSHdWRb/bwdZJ1WaehQ2L1KngkCkfLUGF0mAWAT1sQUQacEmQ0jXkFw/czDXPNQSL5u2/Krsz1w==
+
 isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.npm.taobao.org/isstream/download/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
@@ -10118,6 +10160,19 @@ thor-devkit@^1.3.0:
     js-sha3 "0.5.7"
     rlp "^2.0.0"
 
+thor-devkit@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/thor-devkit/-/thor-devkit-2.0.1.tgz#9dd006a7595844ab8ba8f447ef3e139a3afc6816"
+  integrity sha512-3JF3UkrPZ+HW+PU8B6zO47Uo4ZyOIudW05UoFPhw+v+MLYgWw2J9010xan/eEydQw/oPZ7nw4pgu5SL8iTtCnw==
+  dependencies:
+    "@vechain/ethers" "^4.0.27-3"
+    bignumber.js "^7.2.1"
+    blakejs "^1.1.0"
+    elliptic "6.5.3"
+    fast-json-stable-stringify "^2.0.0"
+    js-sha3 "0.5.7"
+    rlp "^2.0.0"
+
 thread-loader@^2.1.3:
   version "2.1.3"
   resolved "https://registry.npm.taobao.org/thread-loader/download/thread-loader-2.1.3.tgz?cache=0&sync_timestamp=1603809346272&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fthread-loader%2Fdownload%2Fthread-loader-2.1.3.tgz#cbd2c139fc2b2de6e9d28f62286ab770c1acbdda"
@@ -10630,6 +10685,11 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
+validator-ts@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/validator-ts/-/validator-ts-0.9.1.tgz#1ab8748e6ddddc63e9e5edbf7fea91a82b7a466f"
+  integrity sha512-3PCL0AzKWvG/4Y12zUgk6OVup9zQ3vXGzqUIZ69GnSapIV9lgr9VCLFReUgTe04vY6Fm4WzAL7a1HdIVyWRw8Q==
+
 varint@^5.0.0, varint@~5.0.0:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/varint/-/varint-5.0.2.tgz#5b47f8a947eb668b848e034dcfa87d0ff8a7f7a4"
@@ -11094,6 +11154,11 @@ ws@^6.0.0, ws@^6.2.1:
   integrity sha1-RC/fCkftZPWbal2P8TD0dI7VJPs=
   dependencies:
     async-limiter "~1.0.0"
+
+ws@^7.1.0:
+  version "7.4.6"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.6.tgz#5654ca8ecdeee47c33a9a4bf6d28e2be2980377c"
+  integrity sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A==
 
 xmlhttprequest@1.8.0:
   version "1.8.0"

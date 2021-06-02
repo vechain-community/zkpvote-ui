@@ -1,8 +1,10 @@
-import '@vechain/connex';
 import CustomProtocolDetection from 'custom-protocol-detection';
+import getConnex from './initConnex'
 import { Topic } from '../interface/index.d';
 
 export { default as backgroundAnimation } from './backgroundAnimation';
+
+const connex = getConnex()
 
 export const checkProtocolDetection = () => {
   const redirectUrl = `https://env.vechain.org/r/#/test/${encodeURIComponent(window.location.href)}`;
@@ -33,7 +35,7 @@ export const delay = (time: number) => new Promise((resolve) => {
 
 export const checkAuthorized = () => sessionStorage.getItem('signer');
 
-export const checkIsConnex = () => 'connex' in window;
+export const checkIsConnex = () => true;
 
 export const isOnLine = () => window.navigator.onLine;
 
@@ -41,7 +43,7 @@ export const sleep = () => new Promise((resolve) => {
   let timeId: ReturnType<typeof setTimeout> | null = null;
 
   const getConnexStatus = () => {
-    const { progress } = window.connex.thor.status;
+    const { progress } = connex.thor.status;
     if (progress === 1) {
       if (timeId) {
         clearTimeout(timeId);
@@ -64,7 +66,7 @@ export const sleep = () => new Promise((resolve) => {
 export const isTestNet = async (): Promise<boolean> => {
   await sleep();
   const parentId = '0x000000000b2bce3c70bc649a02749e8687721b09ed2e15997f466536b20bb127';
-  const block = window.connex.thor.block(0);
+  const block = connex.thor.block(0);
   const firstBlock = await block.get();
   return firstBlock?.id === parentId;
 };
