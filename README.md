@@ -44,12 +44,20 @@ cd zkpvote-ui/
 
 Run the following command to compile the source code.
 
+#### Install all the dependencies listed
 ```bash
 yarn install
-
-yarn build
 ```
 
+#### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+#### Compiles and minifies for production
+```
+yarn build
+```
 Then the `dist` folder will be generated.
 
 ### Deploy
