@@ -81,7 +81,7 @@ import { toHex } from '@/zkvote/utils';
 import BN from 'bn.js';
 import { uncompressBallot } from '@/zkvote/binary-ballot';
 import {
-  checkIsConnex, checkProtocolDetection, isOnLine, isTestNet, delay,
+  isOnLine, isTestNet, delay,
 } from '@/utils';
 import CodeFormat from '../CodeFormat/index.vue';
 import Print from '../Print/index.vue';
@@ -151,14 +151,10 @@ export default class DialogTally extends Vue {
 
   private async handleUploadResult() {
     try {
-      if (!await checkIsConnex()) {
-        checkProtocolDetection();
-        return false;
-      }
-      if (!await isOnLine()) {
+      if (!isOnLine()) {
         throw Error('Connection Error');
       }
-      if (!await isTestNet()) {
+      if (!isTestNet()) {
         throw Error('ZKPVote only runs in Testnet');
       }
       if (this.isShow) {

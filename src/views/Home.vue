@@ -22,7 +22,7 @@ import { Vue, Component } from 'vue-property-decorator';
 import { Avatar, Button } from '@/baseComponents';
 import { Main } from '@/components';
 import {
-  backgroundAnimation, checkAuthorized, checkIsConnex, checkProtocolDetection, isOnLine, isTestNet,
+  backgroundAnimation, checkAuthorized, isOnLine, isTestNet,
 } from '@/utils';
 import ConnexService from '@/api';
 
@@ -54,16 +54,14 @@ export default class Home extends Vue {
       if (checkAuthorized()) {
         this.$router.push('/new-proposal');
       } else {
-        if (!await checkIsConnex()) {
-          checkProtocolDetection();
-        }
-        if (!await isOnLine()) {
+        if (!isOnLine()) {
+          console.log('Connection Error')
           throw Error('Connection Error');
         }
-        if (!await isTestNet()) {
+        if (!isTestNet()) {
+          console.log('ZKPVote only runs in Testnet')
           throw Error('ZKPVote only runs in Testnet');
         }
-
         const signer = await ConnexService.login();
 
         if (signer) {

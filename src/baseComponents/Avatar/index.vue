@@ -21,8 +21,6 @@ import { Vue, Component, Inject } from 'vue-property-decorator';
 import { State, Action } from 'vuex-class';
 import {
   ellipsis,
-  checkProtocolDetection,
-  checkIsConnex,
   isTestNet,
   isOnLine,
 } from '@/utils';
@@ -46,13 +44,10 @@ export default class Avatar extends Vue {
 
   private async handleChangeSigner() {
     try {
-      if (!await checkIsConnex()) {
-        checkProtocolDetection();
-      }
-      if (!await isOnLine()) {
+      if (!isOnLine()) {
         throw Error('Connection Error');
       }
-      if (!await isTestNet()) {
+      if (!isTestNet()) {
         throw Error('ZKPVote only runs in Testnet');
       }
 

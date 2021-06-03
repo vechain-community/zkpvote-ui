@@ -95,10 +95,8 @@ import { Dialog } from 'element-ui'
 
 import {
   Uint8Array2json,
-  checkIsConnex,
   isOnLine,
   isTestNet,
-  checkProtocolDetection,
   delay,
 } from '@/utils'
 import ipfs from '@/api/ipfs'
@@ -222,16 +220,11 @@ export default class Vote extends Vue {
 
     private async created() {
       try {
-        if (!(await checkIsConnex())) {
-          checkProtocolDetection()
-          return false
-        }
-
-        if (!(await isOnLine())) {
+        if (!isOnLine()) {
           throw Error('Connection Error')
         }
 
-        if (!(await isTestNet())) {
+        if (!isTestNet()) {
           this.isTestNet = false
           throw Error('ZKPVote only runs in Testnet')
         }
@@ -377,16 +370,11 @@ export default class Vote extends Vue {
     }
 
     private async showActiveTheVote(payload: boolean) {
-      if (!(await checkIsConnex())) {
-        checkProtocolDetection()
-        return false
-      }
-
-      if (!(await isOnLine())) {
+      if (!isOnLine()) {
         throw Error('Connection Error')
       }
 
-      if (!(await isTestNet())) {
+      if (!isTestNet()) {
         throw Error('ZKPVote only runs in Testnet')
       }
 
