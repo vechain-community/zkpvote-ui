@@ -100,10 +100,8 @@ import {
 import { State } from 'vuex-class';
 import { createHmac } from 'crypto';
 import {
-  checkIsConnex,
   isOnLine,
   isTestNet,
-  checkProtocolDetection,
 } from '@/utils';
 
 import { Topic, Config } from '@/interface/index.d';
@@ -172,19 +170,15 @@ export default class NewProposal extends Vue {
           return false;
         }
 
-        if (!await checkIsConnex()) {
-          return checkProtocolDetection();
-        }
-
         if (!valida) {
           return false;
         }
 
-        if (!await isOnLine()) {
+        if (!isOnLine()) {
           throw Error('Connection Error');
         }
 
-        if (!await isTestNet()) {
+        if (!isTestNet()) {
           throw Error('ZKPVote only runs in Testnet');
         }
 

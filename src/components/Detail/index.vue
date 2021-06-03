@@ -151,10 +151,8 @@ import {
 } from 'vue-property-decorator';
 import { Avatar, Tag, Button } from '@/baseComponents';
 import {
-  checkIsConnex,
   isOnLine,
   isTestNet,
-  checkProtocolDetection,
   ellipsis,
   delay,
 } from '@/utils';
@@ -374,14 +372,10 @@ export default class Detail extends Vue {
 
   private async handleLogin() {
     try {
-      if (!await checkIsConnex()) {
-        checkProtocolDetection();
-        return false;
-      }
-      if (!await isOnLine()) {
+      if (!isOnLine()) {
         throw Error('Connection Error');
       }
-      if (!await isTestNet()) {
+      if (!isTestNet()) {
         throw Error('ZKPVote only runs in Testnet');
       }
 
@@ -406,14 +400,10 @@ export default class Detail extends Vue {
 
   private async handleVote() {
     try {
-      if (!await checkIsConnex()) {
-        checkProtocolDetection();
-        return false;
-      }
-      if (!await isOnLine()) {
+      if (!isOnLine()) {
         throw Error('Connection Error');
       }
-      if (!await isTestNet()) {
+      if (!isTestNet()) {
         throw Error('ZKPVote only runs in Testnet');
       }
 
