@@ -303,7 +303,7 @@ export default class Detail extends Vue {
         if (parseInt(valid, 16)) {
           this.printData2.push({
             tag: 'success',
-            desc: 'Result: Valids',
+            desc: 'Result: Valid',
           });
         } else {
           this.printData2.push({
