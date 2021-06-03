@@ -63,12 +63,10 @@ export const sleep = () => new Promise((resolve) => {
   getConnexStatus();
 });
 
-export const isTestNet = async (): Promise<boolean> => {
-  await sleep();
+export const isTestNet = (): boolean => {
   const parentId = '0x000000000b2bce3c70bc649a02749e8687721b09ed2e15997f466536b20bb127';
-  const block = connex.thor.block(0);
-  const firstBlock = await block.get();
-  return firstBlock?.id === parentId;
+  const block = connex.thor.genesis;
+  return block.id === parentId;
 };
 
 export const ellipsis = (address: string) => `${address.slice(0, 8)}...`;
