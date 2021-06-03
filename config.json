@@ -1,0 +1,8 @@
+{
+  "contractAddress": "0xb857ec3641ef2a7b9fc2ab4fbe3e65386df17253",
+  "ipfsConfig": {
+    "host": "ipfs.vechain.org",
+    "port": "5001",
+    "protocol": "https"
+  }
+}
