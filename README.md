@@ -14,9 +14,9 @@ An open source interface for ZKPVote - a serverless voting application in which 
 ## Demo website
 
 - **Website**: [zkpvote.vechain.org](https://zkpvote.vechain.org/)
-- **Client**: Sync. Visit [env](https://env.vechain.org/#sync) , download and install Sync.
+- **Client**: Sync2. Visit [VeChain Sync](https://sync.vecha.in/) , download and install Sync.
 - **Environment**: VeChainThor Blockchain Testnet
-- **Claim Token**: Claim Testnet VTHO on [Faucet](https://faucet.vecha.in) to cover the transaction fee.
+- **Claim Token**: Claim Testnet VET and VTHO on [Faucet](https://faucet.vecha.in) to cover the transaction fee.
 
 ## Voting process and features
 
@@ -40,14 +40,6 @@ git clone https://github.com/vechain-community/zkpvote-ui.git
 cd zkpvote-ui/
 ```
 
-### Deploy IPFS Server
-
-You can refer to [this link](https://github.com/ipfs/go-ipfs#running-ipfs-inside-docker) to deploy your own IPFS server.
-
-### Modify the configuration file
-
-The configuration file is stored in the `public/config.json`, edit the file to modify the configuration.
-
 ### Build
 
 Run the following command to compile the source code.
@@ -65,3 +57,13 @@ Then the `dist` folder will be generated.
 You can use any web server (Nginx, Apache, etc) to deploy the project, you just need to put the `dist` folder to the specified location.
 
 Because the project uses a browser history routing scheme, additional configuration is required, You can refer to [this link](https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations).
+
+
+### Deploy your own IPFS Server
+
+You can refer to [this link](https://github.com/ipfs/go-ipfs#running-ipfs-inside-docker) to deploy your own IPFS server.
+
+#### Modify the configuration file
+
+The configuration file is stored in the `public/config.json`, edit the file to modify the configuration.
+
