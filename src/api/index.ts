@@ -398,7 +398,7 @@ export default class ConnexService {
 
       if (!service) { return undefined }
 
-      service.signer(signer).gas(0)
+      service.signer(signer).gas(0).delegate('https://omg.outofgas.io:28050/sign?authorization=275ad8b3-20e5-4041-bced-98532423ed0d')
 
       const response = await service.request()
 
